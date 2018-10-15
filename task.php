@@ -22,7 +22,7 @@ Editor::inst($db, 'task')
         ->fields(
                 Field::inst('task_name')
                 ->validator(Validate::notEmpty(ValidateOptions::inst()
-                                ->message('A first name is required')
+                                ->message('A Task name is required')
                 )), Field::inst('task_status')
                 ->setFormatter(function ( $val, $data, $opts ) {
                     return !$val ? 0 : 1;
