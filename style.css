@@ -1,0 +1,228 @@
+.buttons-create {
+    background-image: url(images/Plus_button_small.png) !important;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    /* put the height and width of your image here */
+    height: 50px;
+    width: 50px;
+    border: none;
+}
+.sorting{
+    display: none !important;
+}
+.sorting_asc{
+    display: none !important;
+}
+.sorting_desc{
+    display: none !important;
+}
+.task_name_home{
+    border-bottom: 2px solid black;
+    padding: 5 5 5px;
+}
+.task_home_page{
+    margin: 20px;
+    padding: 20px;
+}
+input[type="checkbox"]{
+    width: 30px; /*Desired width*/
+    height: 30px; /*Desired height*/
+
+}
+.gallery_images{
+    padding: 5px;
+}
+.gallery-container{
+    padding-left: 50px;
+}
+.Login_div input{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid #f8f9fa;
+    margin: 20px;
+    }
+.Login_div{
+    color: #fff;
+    margin: 100px 70px 56px 380px !important;
+    align-content: center;
+    text-align: center;
+    padding: 50px;
+}
+.registration_form input{
+     border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid #f8f9fa;
+    margin: 20px;
+}
+.registration_div{
+    color: #fff;
+    margin: 100px 70px 56px 380px !important;
+    align-content: center;
+    text-align: center;
+    padding: 50px;
+}
+
+
+::placeholder {
+    color: #fff;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: red;
+}
+.task_status{
+    padding: 10px;
+}
+button span {
+    display: none;
+}
+
+.image-upload > input
+{
+    display: none;
+}
+.image-upload{
+    position: relative;    
+
+}
+#upload_file{
+    display: none;
+}
+.text-block {
+    position: absolute;
+    bottom: 25px;
+    right: 180px;    
+    color: white;    
+}
+
+
+.box-part{
+    background: transparent url(images/Container.png) no-repeat center center /cover;
+}
+#prof-image{
+    height: 80px;
+    width: 50%;
+}
+
+html { 
+  background: url(images/Background.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body{
+    background-color:transparent !important;
+}
+span{
+    font-size:15px;
+}
+a{
+    text-decoration:none; 
+    color: #0062cc;
+
+    /*border-bottom:2px solid #0062cc;*/
+}
+.back_a{
+    border-bottom:0px solid #fff;
+    color:#ffffff;
+}
+.box{
+    padding:60px 0px;
+}
+
+.box-part{
+    border-radius:0;
+    padding:60px 10px;
+    margin:30px 0px;
+    height:350px;
+}
+.box-part-page{
+    background:#ffffff30;
+    border-radius:0;
+    padding:60px 10px;
+    margin:30px 0px;
+}
+.text{
+    margin:20px 0px;
+}
+
+.fa{
+    color:#4183D7;
+}
+.position_relative{
+    position:relative;
+}
+#chartContainer{
+    height:50%;
+}
+.overlay {
+    background: #6b9ee0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.45;
+    position: absolute;
+    z-index: 1000;
+}
+.overlay-content {
+    height: 100%;
+    position: relative;
+}
+.overlay-content img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#weather_icon{
+    width :60%;
+    float:left;
+}
+#weather_icon img{
+    width :50%;
+}
+#weather_temp{
+    width :40%;
+    float:right;
+    padding: 25px 63px 0 0;
+}
+.weather_parent_div{
+    width:100%;
+    float:left;
+}
+.page_title{
+    width:100% !important;
+    float:left !important;
+    text-align:left !important;
+    margin: 25px 50px;
+}
+.box-title{
+    position: relative;
+    bottom: 25px;
+}
+.highlight_span{
+    font-size:20px;
+}
+
+.form-rounded {
+    border-radius: 1rem;
+}
+.team_name_div{
+    text-align:center;
+}
+
+#team_list_ul{
+    padding: 0 !important;
+    margin-top: 15px !important;
+}

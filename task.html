@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, user-scalable=no">        
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.4/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="datatables/css/editor.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="datatables/examples/resources/syntax/shCore.css">
+        <link rel="stylesheet" type="text/css" href="datatables/examples/resources/demo.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style type="text/css" class="init">
+        </style>
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
+        <script type="text/javascript" language="javascript" src="datatables/js/dataTables.editor.min.js"></script>
+        <script type="text/javascript" language="javascript" src="datatables/examples/resources/syntax/shCore.js"></script>
+        <script type="text/javascript" language="javascript" src="datatables/examples/resources/demo.js"></script>
+        <script type="text/javascript" language="javascript" src="datatables/examples/resources/editor-demo.js"></script>
+        <script type="text/javascript" language="javascript" class="init">
+            var editor; // use a global for the submit and return data rendering in the examples
+            $(document).ready(function () {                
+                editor = new $.fn.dataTable.Editor({
+                    ajax: "task.php",
+                    table: "#example",
+                    fields: [{
+                            label: "Task Name:",
+                            name: "task_name"
+                        },
+                        {
+                            label: "Status",
+                            name: "task_status",
+                            type: "checkbox",
+                            separator: "|",
+                            options: [
+                                {label: '', value: 1}
+                            ]
+                        },
+                    ]
+                });
+                $('#example').DataTable({
+                    dom: "Bfrtip",
+                    ajax: "task.php",
+                    order: [[1, 'asc']],
+                    columns: [
+
+                        {data: "task_name"},
+                        {
+                            data: "task_status",
+                            render: function (data, type, row) {
+                                if (type === 'display') {
+                                    return '<input type="checkbox" class="editor-active" >';
+                                }
+                                return data;
+                            },
+                            className: "dt-body-center"
+                        }
+
+                    ],
+                    select: {
+                        style: 'os',
+                        selector: 'td:first-child'
+                    },
+                    buttons: [
+                        {extend: "create", editor: editor}
+
+                    ],
+                    rowCallback: function (row, data) {
+                        // Set the checked state of the checkbox in the table
+                        $('input.editor-active', row).prop('checked', data.task_status == 1);
+                    }
+                });
+                $('#example').on('change', 'input.editor-active', function () {
+                    editor
+                            .edit($(this).closest('tr'), false)
+
+                            .set('task_status', $(this).prop('checked') ? 1 : 0)
+                            .submit();
+                });
+                //Activate an inline edit on click of a table cell
+                $('#example').on('click', 'tbody td:first-child', function (e) {
+                    editor.inline(this);
+                });
+
+            });
+        </script>
+    </head>
+    <body class="dt-example php">
+        <div class="container">
+            <section>
+                <h1>Tasks</h1>
+                <div class="demo-html"></div>
+                <table id="example" class="display" cellspacing="0" width="100%">                    
+                </table>
+                <a class="back_a" href="index.php">Back</a>
+            </section>
+        </div>
+
+    </body>
+</html>
